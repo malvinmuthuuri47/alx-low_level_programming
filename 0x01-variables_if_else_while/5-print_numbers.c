@@ -6,7 +6,7 @@
  * Return: Always 0 (success)
  */
 
-itn main(void)
+int main(void)
 {
 	int num;
 
