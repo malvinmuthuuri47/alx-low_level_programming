@@ -1,7 +1,8 @@
 #include <stdio.h>
+
 /**
- * main - add a new line to code
- * Return: always 0 success
+ * main - adds one line to code
+ * Return: 0 always success
  */
 
 int main(void)
