@@ -1,33 +1,66 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stddef.h>
 
 /**
- * _strdup - returns a pointer to a newly allocated space in memory,
- * which contains a copy of the string given as a parameter.
- * @str: the source string
- *
- * Return: returns a pointer to the duplicated string.
- * It returns NULL if insufficient memory was available
+ * _strlen - count array
+ * @s: array of elements
+ * Return: 1
  */
-char *_strdup(char *str)
+
+int _strlen(char *s)
 {
-	char *copy;
-	int i, len = 0;
+	unsigned int i;
 
-	if (str == NULL)
+	i = 0;
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+
+	return (1);
+}
+
+/**
+ * str_concat - back a pointer to array
+ * @s1: array one
+ * @s2: array two
+ * Return: Always an array dynamic
+ */
+
+char *str_concat(char *s1, char *s2)
+{
+	char *dst;
+
+	unsigned int i, j, size;
+
+	/*it the array is empty*/
+	if (s1 == NULL)
+		s1 = "";
+
+	if (s2 == NULL)
+		s2 = "";
+
+	/*count size total*/
+	size = (_strlen(s1) + _strlen(s2) + 1);
+
+	/*malloc*/
+	dst = (char *)malloc(size * sizeof(char));
+
+	if (dst == 0)
+	{
 		return (NULL);
+	}
 
-	while (str[len] != '\0')
-		len++;
+	/*Concatenate arrays*/
+	for (i = 0; *(s1 + 1) != '\0'; i++)
+		*(dst + 1) = *(s1 + i);
 
-	copy = (char *)malloc((sizeof(char) * len) + 1);
-	if (copy == NULL)
-		return (NULL);
+	for (j = 0; *(s2 + j) != '\0'; j++)
+	{
+		*(dst + 1) = *(s2 + j);
+		i++;
+	}
 
-	for (i = 0; i < len; i++)
-		copy[i] = str[i];
-	copy[len] = '\0';
-
-
-	return (copy);
+	return (dst);
 }
