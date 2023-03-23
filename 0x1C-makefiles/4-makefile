@@ -1,3 +1,6 @@
+# Usage: make [all/clean/oclean/fclean] -f [file]
+
+
 CC = gcc
 SRC = main.c school.c
 OBJ = $(SRC:.c=.o)
@@ -9,16 +12,16 @@ CFLAGS = -Wall -Werror -Wextra -pedantic
 all: m.h $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-# delete tmp files & executables
+# deletes tmp files & executable
 clean:
 	$(RM) *~ $(NAME)
 
-# delete object files
+# deletes object files
 oclean:
 	$(RM) $(OBJ)
 
-# delete temp, executable & obj files
+# deletes all (tmp files, executable, & obj files)
 fclean: clean oclean
 
-# delete all & recompile all source files
+# deletes all & recompiles all source files
 re: oclean all
