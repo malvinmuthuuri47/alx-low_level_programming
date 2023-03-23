@@ -1,0 +1,24 @@
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+RM = rm -f
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+# make all
+all: m.h $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+# delete tmp & executables
+clean:
+	$(RM) *~ $(NAME)
+
+# delete object files
+oclean:
+	$(RM) $(OBJ)
+
+# delete all(tmp files, executables & obj files)
+fclean: clean oclean
+
+# delete all & recompile all source files
+re: oclean all
