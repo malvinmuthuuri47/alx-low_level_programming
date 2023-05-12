@@ -33,6 +33,9 @@ int jump_search(int *array, size_t size, int value)
 	size_t prev = 0;
 	size_t step = 0;
 
+	if (!array || !size)
+		return (-1);
+
 	/* Finding the block that finds the value */
 	while (array[step] < value)
 	{
