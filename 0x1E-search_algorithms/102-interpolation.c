@@ -41,7 +41,7 @@ int ppf(int *array, size_t low, size_t high, int value)
 {
 	size_t pos;
 
-	position = low + (((double)(high - low) / (array[high] - array[low]))
+	pos = low + (((double)(high - low) / (array[high] - array[low]))
 			* (value - array[low]));
 	if (pos >= high + low)
 	{
