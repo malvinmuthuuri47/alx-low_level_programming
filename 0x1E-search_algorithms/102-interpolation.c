@@ -16,9 +16,8 @@
 
 int interpolation_search(int *array, size_t size, int value)
 {
-	if (!array || !size)
+	if (!array)
 		return (-1);
-
 	return (ppf(array, 0, size - 1, value));
 }
 
@@ -40,14 +39,10 @@ int interpolation_search(int *array, size_t size, int value)
 
 int ppf(int *array, size_t low, size_t high, int value)
 {
-	size_t pos, numerator, denominator;
+	size_t pos;
 
-	numerator = ((double)(high - low) / (array[high] - array[low]));
-
-	denominator = (value - array[low]);
-
-	pos = low + ((numerator) * denominator);
-
+	position = low + (((double)(high - low) / (array[high] - array[low]))
+			* (value - array[low]));
 	if (pos >= high + low)
 	{
 		printf("Value checked array[%ld] is out of range\n", pos);
